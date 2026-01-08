@@ -12,7 +12,7 @@ Este proyecto muestra cómo conectar un agente de Azure AI Foundry con Azure Fun
 ## Instalación local
 
 1. Clonar repositorio:
-```bash
+
 git clone https://github.com/tuusuario/ChatBotLaMarina.git
 cd ChatBotLaMarina
 
