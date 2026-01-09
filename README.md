@@ -55,9 +55,24 @@ Iniciar la Function local:
 func start
 Probar endpoint:
 curl "https://apichatbot-csawevcnhthfduer.canadacentral-01.azurewebsites.net/api/cliente/compras?id=123&code=YOUR_FUNCTION_KEY"
-Respuesta esperada:
-{"clienteId": "123", "compras": [{"fecha": "2024-10-01", "total": 950, "estado": "Entregado"}, {"fecha": "2024-10-10", "total": 120, "estado": "Enviado"}]}
 
+Predicción de comportamiento del cliente
+
+Actualmente la API incluye una predicción básica basada en las compras:
+- Gasto promedio del cliente
+- Estimación de próxima compra
+- Riesgo de abandono
+
+Esta es una heurística simple, pero la arquitectura permite integrar modelos de ML reales en el futuro.
+
+Respuesta esperada:
+{
+  "clienteId": 123,
+  "prediccion": {
+    "gasto_promedio": 535,
+    "riesgo_abandono": "bajo"
+  }
+}
 
 4️⃣ Publicar la Function en Azure
 
@@ -74,24 +89,10 @@ Clave de Function
 Probar acción enviando un parámetro id y recibir la respuesta de tu API.
 ⚠️ Nota: No se agrega como conocimiento estático, porque tu API devuelve datos dinámicos en tiempo real. Se agrega como acción que el agente puede ejecutar bajo demanda.
 
-6️⃣ Comprobación
-Desde Foundry, el agente puede ejecutar la acción:
-{
-  "id": "123"
-}
-Respuesta:
-{"clienteId": "123", "compras":[{"fecha": "2024-10-01","total":950,"estado":"Entregado"},{"fecha":"2024-10-10","total":120,"estado":"Enviado"}]}
-Resumen de por qué cada paso es necesario
-Paso	Por qué
-Crear Function App	Permite exponer datos dinámicos a Foundry vía HTTP
-Configurar trigger HTTP	Permite recibir parámetros (id) y devolver resultados
-Publicar en Azure	Permite que Foundry acceda desde la nube
-Agregar acción en Foundry	Accede a datos en tiempo real, no conocimiento estático
-Probar localmente	Garantiza que la lógica funciona antes de publicar
 
 7️⃣ Estructura del repositorio
 
-ChatBotLaMarina/
+ChatBotFoundry/
 │
 ├─ function_app.py
 ├─ requirements.txt
