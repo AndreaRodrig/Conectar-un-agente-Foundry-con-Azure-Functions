@@ -92,7 +92,7 @@ Probar acción enviando un parámetro id y recibir la respuesta de tu API.
 
 7️⃣ Estructura del repositorio
 
-ChatBotFoundry/
+AgenteFoundry/
 │
 ├─ function_app.py
 ├─ requirements.txt
