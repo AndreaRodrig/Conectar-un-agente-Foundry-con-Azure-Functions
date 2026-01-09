@@ -89,6 +89,10 @@ Clave de Function
 Probar acción enviando un parámetro id y recibir la respuesta de tu API.
 ⚠️ Nota: No se agrega como conocimiento estático, porque tu API devuelve datos dinámicos en tiempo real. Se agrega como acción que el agente puede ejecutar bajo demanda.
 
+6️⃣ Actualizar API
+Es necesario estar en tu carpeta local del proyecto y ejecutar los siguientes comandos en la terminal:
+az login
+func azure functionapp publish ApiChatBot
 
 7️⃣ Estructura del repositorio
 
