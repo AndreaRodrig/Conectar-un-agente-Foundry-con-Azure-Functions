@@ -57,7 +57,7 @@ def get_compras(req: func.HttpRequest) -> func.HttpResponse:
             mimetype="application/json"
         )
 
-    # ⚡ Generar la predicción dinámicamente según el cliente que viene en la petición
+    # Generar la predicción según el cliente que viene en la petición
     data["prediccion"] = generar_prediccion(data["compras"])
 
     return func.HttpResponse(
@@ -65,3 +65,4 @@ def get_compras(req: func.HttpRequest) -> func.HttpResponse:
         status_code=200,
         mimetype="application/json"
     )
+
